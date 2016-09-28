@@ -16,7 +16,7 @@ vertical screen lines, that function is a NOP, so simpler functions,
 even if the result looks strange.  There is also a minor mode, `jiggle-mode`, that
 runs jiggle-cursor every time you switch buffers.
 
-You can toggle jiggling with 
+You can toggle jiggling with
 
     M-x jiggle-mode.
 
@@ -26,7 +26,7 @@ by default, which is 3 jiggles.  Put a line like
     (setq jiggle-how-many-times 8)
 
 in your `.emacs` to increase the default from 3 to 8, for example.  That line
-can go before or after `(require 'jiggle)`.  
+can go before or after `(require 'jiggle)`.
 
 Also, if it helps,
 
