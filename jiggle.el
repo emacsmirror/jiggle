@@ -655,7 +655,7 @@ With argument ARG, turn search jiggling on iff ARG is positive."
 ;;           --John L. Wierzbicki <jwierzbicki@melpar.esys.com>
 
 ;;;;; ************************* EMACS CONTROL ************************* ;;;;;
-
+
 ;; Local Variables:
 ;; mode: outline-minor
 ;; fill-column: 77
