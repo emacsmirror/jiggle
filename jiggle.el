@@ -4,9 +4,9 @@
 ;; Author: Will Mengarini <seldon@eskimo.com>
 ;; Maintainer: Emre Sevinç <emre.sevinc@gmail.com>
 ;; Created: Mo 16 Feb 98
-;; Version: 0.44, Th 29 Oct 98
+;; Version: 0.0.44
 ;; Keywords: frames, hardware, jiggle, cursor, shake
-;; URL: <http://www.eskimo.com/~seldon>
+;; URL: https://github.com/emres/jiggle
 
 ;;; Commentary:
 
@@ -296,7 +296,7 @@ also checked; if it's nil nothing is done."
                     (zerop (forward-line -1)));so I'm not on line 1
                   (save-excursion
                     (let ((goal-column (current-column)))
-                      (previous-line 1)
+                      (forward-line -1)
                       (setq other-dot (point))
                       (and (< (- goal-column (current-column)) 2)
                            (or truncate-lines
@@ -307,7 +307,7 @@ also checked; if it's nil nothing is done."
             ((save-excursion                              ;Jiggle down?
                (condition-case nil
                    (let ((goal-column (current-column)))
-                     (next-line 1)
+                     (forward-line 1)
                      (setq other-dot (point))
                      (and (< (- goal-column (current-column)) 2)
                           (or truncate-lines
@@ -394,18 +394,18 @@ Deliberately ignores minibuffer since that has its own hooks.")
 
 (require 'advice)
 
-(mapcar (function
-         (lambda (f)
-           (eval
-            `(defadvice ,f (after run-jiggle-buffer-switch-hook act)
-               "Implement jiggle-buffer-switch-hook."
-               (run-hooks 'jiggle-buffer-switch-hook)))))
-        '(bury-buffer
-          kill-buffer
-          other-window
-          pop-to-buffer
-          switch-to-buffer
-          ))
+(mapc (function
+       (lambda (f)
+	 (eval
+	  `(defadvice ,f (after run-jiggle-buffer-switch-hook act)
+	     "Implement jiggle-buffer-switch-hook."
+	     (run-hooks 'jiggle-buffer-switch-hook)))))
+      '(bury-buffer
+	kill-buffer
+	other-window
+	pop-to-buffer
+	switch-to-buffer
+	))
 
 ;; 'set-buffer is deliberately excluded from that function list; I don't want
 ;; to do a user-level action like jiggling the cursor when *code*, rather
@@ -422,25 +422,25 @@ Deliberately ignores minibuffer since that has its own hooks.")
 
 ;;; Exceptions to the hook:
 
-(mapcar (function
-         (lambda (f)
-           (eval
-            `(defadvice ,f (around jiggle-disabled act)
-               "Disable jiggle-cursor during this command."
-               (let ((jiggle-enabled nil))
-                 ad-do-it)))))
-        jiggle-disabled-during)
+(mapc (function
+       (lambda (f)
+	 (eval
+	  `(defadvice ,f (around jiggle-disabled act)
+	     "Disable jiggle-cursor during this command."
+	     (let ((jiggle-enabled nil))
+	       ad-do-it)))))
+      jiggle-disabled-during)
 
-(mapcar (function
-         (lambda (f)
-           (eval
-            `(defadvice ,f (around jiggle-postponed act)
-               "Postpone jiggling, if jiggle-mode, to end of command."
-               (let ((jiggle-enabled nil))
-                 ad-do-it)
-               (when jiggle-mode
-                 (jiggle-cursor))))))
-        jiggle-postponed-during)
+(mapc (function
+       (lambda (f)
+	 (eval
+	  `(defadvice ,f (around jiggle-postponed act)
+	     "Postpone jiggling, if jiggle-mode, to end of command."
+	     (let ((jiggle-enabled nil))
+	       ad-do-it)
+	     (when jiggle-mode
+	       (jiggle-cursor))))))
+      jiggle-postponed-during)
 
 ;;;;; ************************** MINOR MODE *************************** ;;;;;
 
@@ -492,7 +492,7 @@ With argument ARG, turn search jiggling on iff ARG is positive."
             (> (prefix-numeric-value arg) 0)
           (not jiggle-searches-too)))
   (jiggle-adjust-search-advices)
-  (when (interactive-p)
+  (when (called-interactively-p 'interactive)
     (message
      (if jiggle-searches-too
          (if jiggle-mode
