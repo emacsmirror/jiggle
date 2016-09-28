@@ -1,27 +1,12 @@
 ;;; jiggle.el --- Minor mode to jiggle cursor when changing buffers
 
 ;; Copyright (C) 1998 Will Mengarini
-
 ;; Author: Will Mengarini <seldon@eskimo.com>
-;; URL: <http://www.eskimo.com/~seldon>
+;; Maintainer: Emre Sevinç <emre.sevinc@gmail.com>
 ;; Created: Mo 16 Feb 98
 ;; Version: 0.44, Th 29 Oct 98
 ;; Keywords: frames, hardware, jiggle, cursor, shake
-
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-
-;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to the
-;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-;; Boston, MA 02111-1307, USA.
+;; URL: <http://www.eskimo.com/~seldon>
 
 ;;; Commentary:
 
@@ -122,6 +107,21 @@
 ;; newly-selected buffer.  The hook is implemented without using
 ;; p{re,ost}-command-{,idle}-hook, so it's reasonably efficient; on a 486/50
 ;; under Windows 95 it entails no performance hit I can discern.
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to the
+;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+;; Boston, MA 02111-1307, USA.
 
 ;;; Code:
 
