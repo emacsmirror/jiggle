@@ -45,7 +45,7 @@ You can use this package either interactively or from your `.emacs` file.  In
 either case, first you'll need to copy this file to a directory that appears in
 your load-path. `load-path` is the name of a variable that contains a list of
 directories Emacs searches for files to load.  To prepend another directory to
-load-path, put a line like (add-to-list 'load-path "c:/My_Directory") in your
+load-path, put a line like `(add-to-list 'load-path "c:/My_Directory")` in your
 `.emacs` file.
 
 Then, put the line
