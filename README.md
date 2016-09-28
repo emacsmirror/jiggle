@@ -36,11 +36,11 @@ slows down the jiggling by a factor of 10 (the default is .01), theoretically,
 although in real life contemporary computers aren't that fast or precise, so the
 effect will be smaller.
 
+
 Installation
 ------------
 
 ### Manual Installation
-
 You can use this package either interactively or from your `.emacs` file.  In
 either case, first you'll need to copy this file to a directory that appears in
 your load-path. `load-path` is the name of a variable that contains a list of
@@ -59,7 +59,18 @@ time you switch buffers, put the line
 
 ### Using the Package Manager
 
-TODO: Add details for MELPA.
+If you have `melpa` installed, simply type:
+
+    M-x package-install jiggle
+
+Add following lines to your init file:
+
+    (require 'jiggle)
+
+Then turn on the `jiggle-mode`:
+
+    M-x jiggle-mode
+
 
 Copyright
 ---------
