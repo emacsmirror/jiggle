@@ -4,7 +4,8 @@ When small fonts are used to pack a maximum amount of text onto the screen, the
 steady box cursor used by default with Emacs under windowing systems can be hard
 to see (unlike the blinking cursor that is common under terminal systems).  We
 discern motion more easily than color or shape, so jiggling the cursor on a
-large frame lets it be seen instantly without searching.
+large frame lets it be seen instantly without searching. Please
+see [the screencast below](#Screencast).
 
 This package implements an interactive function, `jiggle-cursor`, that does
 that, selecting the direction of the jiggle to avoid repositioning the buffer in
