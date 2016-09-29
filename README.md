@@ -36,6 +36,11 @@ slows down the jiggling by a factor of 10 (the default is .01), theoretically,
 although in real life contemporary computers aren't that fast or precise, so the
 effect will be smaller.
 
+Screencast
+----------
+Below you can see the jiggle-mode in action.
+
+![Jiggle Mode in Action - Screencast](./jiggle.gif "Jiggle Mode Screencast")
 
 Installation
 ------------
