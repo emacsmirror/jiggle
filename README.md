@@ -63,20 +63,6 @@ time you switch buffers, put the line
 
     (jiggle-mode t)
 
-### Using the Package Manager
-
-If you have `melpa` installed, simply type:
-
-    M-x package-install jiggle
-
-Add following lines to your init file:
-
-    (require 'jiggle)
-
-Then turn on the `jiggle-mode`:
-
-    M-x jiggle-mode
-
 
 Copyright
 ---------
